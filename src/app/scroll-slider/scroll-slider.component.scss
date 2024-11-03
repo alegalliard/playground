@@ -1,0 +1,32 @@
+.scroll-slider {
+    width: 700px;
+    background-color: aliceblue;
+    display: block;
+    overflow:auto;
+    scroll-behavior: smooth;
+    position: relative;
+    .slide-line {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        gap: 30px;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .slide {
+        width: 500px;
+
+        &.active {
+            opacity: .8;
+        }
+    }
+
+    img {
+        width: 400px;
+    }
+
+}

@@ -1,4 +1,4 @@
-<h1>Slider simples</h1>
+<h1>Slider com scroll</h1>
 
 <div class="actions">
     <button (click)="prev()" [disabled]="currentIndex === 0">Prev</button>
@@ -9,19 +9,19 @@
 
 Atual: {{currentIndex}}
 
-<div class="slider">
-    <div class="slide" [ngStyle]="{'background-image': getCurrentSlider()}"></div>
 
+<div class="scroll-slider">
+    <div class="slide-line" #scrollSlider>
+        @for (item of images; track item; let i = $index) {
+            <div class="slide" [class.active]="currentIndex === i">
+                <img [src]="images[i]" alt="">
+            </div>
+        }
+    
+    </div>
     <div class="dots">
         @for (item of images; track item; let i = $index) {
             <button class="dot" [class.active]="i === currentIndex" (click)="goTo(i)"></button>
         }
     </div>
 </div>
-
-
-
-<small>
-    Cubic bezier para CSS animations 
-    https://easings.net/
-</small>
