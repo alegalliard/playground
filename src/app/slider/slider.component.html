@@ -1,0 +1,22 @@
+
+<div class="actions">
+    <button (click)="prev()" [disabled]="currentIndex === 0">Prev</button>
+    <button (click)="next()" [disabled]="currentIndex === images.length - 1">Next</button>
+</div>
+
+Atual: {{currentIndex}}
+
+<div class="slider">
+    <div class="slide" [ngStyle]="{'background-image': getCurrentSlider()}"></div>
+
+    <div class="dots">
+        @for (item of images; track item; let i = $index) {
+            <button class="dot" [class.active]="i === currentIndex" (click)="goTo(i)"></button>
+        }
+    </div>
+</div>
+
+<small>
+    Cubic bezier para CSS animations 
+    https://easings.net/
+</small>
